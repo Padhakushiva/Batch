@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Person Object Example</title>
+  <style>
+    /* Basic responsive container */
+.responsive-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .responsive-container {
+    max-width: 95vw;
+    padding: 12px;
+    margin: 12px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="responsive-container">
+  <h2>Person Info</h2>
+  <p id="personName"></p>
+  <p id="personAge"></p>
+  <button onclick="person1.sayHello()">Say Hello</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById('personName').textContent = "Name: " + person1.name;
+  document.getElementById('personAge').textContent = "Age: " + person1.age;
+</script>
+
+</body>
+</html>
