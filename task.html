@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Message Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Interactive Message Updater</h2>
+
+  <!-- Input and Buttons -->
+  <input type="text" id="userInput" placeholder="Type something here..." />
+  <br>
+  <button id="updateBtn">Update Message</button>
+  <button id="clearBtn">Clear</button>
+
+  <!-- Message Output -->
+  <p id="message">Waiting for your message...</p>
+
+  <script>
+    const input = document.getElementById("userInput");
+    const message = document.getElementById("message");
+    const updateBtn = document.getElementById("updateBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    let clickCount = 0;
+
+    updateBtn.addEventListener("click", () => {
+      const text = input.value.trim();
+
+      if (text === "") {
+        message.textContent = "Please enter some text!";
+        return;
+      }
+
+      message.textContent = text;
+
+      clickCount++;
+
+      if (clickCount >= 5) {
+        updateBtn.disabled = true;
+        message.textContent += " (Button disabled after 5 clicks)";
+      }
+    });
+
+    clearBtn.addEventListener("click", () => {
+      input.value = "";
+      message.textContent = "Waiting for your message...";
+      clickCount = 0;
+      updateBtn.disabled = false;
+    });
+  </script>
+
+</body>
+</html>
