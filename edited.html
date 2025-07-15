@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First HTML Page</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    /* Card Styling */
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    /* Form Styling */
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      padding: 10px;
+      width: 300px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1c5980;
+    }
+
+    /* Positioning examples */
+    .fixed-note {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #ffeb3b;
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .relative-box {
+      position: relative;
+      background-color: #dff9fb;
+      padding: 20px;
+      margin-top: 40px;
+      border: 1px solid #ccc;
+    }
+
+    .absolute-box {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff7675;
+      padding: 10px;
+      color: white;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Position Example -->
+  <div class="fixed-note">Fixed: Always visible</div>
+
+  <h1>Welcome to My Website</h1>
+
+  <div class="card">
+    <p>This is a simple HTML5 page with a title, a heading, a paragraph, and an image.</p>
+    <img 
+      src="https://images.unsplash.com/photo-1619418602850-35ad20aa1700?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+      alt="Placeholder Image" 
+      style="width: 300px; border-radius: 8px; margin-top: 10px;">
+  </div>
+
+  <h2>Contact Us</h2>
+  <form action="#" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- Relative and Absolute Position Example -->
+  <div class="relative-box">
+    This is a relative container
+    <div class="absolute-box">I'm absolutely placed</div>
+  </div>
+
+</body>
+</html>
