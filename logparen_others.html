@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Navigation</title>
+</head>
+<body>
+
+  <div id="container">
+    <h2>Heading</h2>
+    <p id="paragraph">This is a paragraph.</p>
+    <span>Some span text</span>
+  </div>
+
+  <button onclick="logDOM()">Log DOM Relationships</button>
+
+  <script>
+    function logDOM() {
+      const paragraph = document.getElementById("paragraph");
+
+      // Log parent node of the paragraph
+      console.log("Parent Node of paragraph:", paragraph.parentNode);
+
+      // Log all child nodes of the container
+      const container = document.getElementById("container");
+      console.log("Child Nodes of container:", container.childNodes);
+
+      // Log next sibling of the paragraph
+      console.log("Next Sibling of paragraph:", paragraph.nextSibling); // might be a text node
+      console.log("Next Element Sibling of paragraph:", paragraph.nextElementSibling); // actual element
+    }
+  </script>
+
+</body>
+</html>
+
