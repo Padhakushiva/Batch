@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM List Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: disc;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 0;
+      text-align: left;
+    }
+
+    li {
+      padding: 10px;
+      background-color: #fff;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>DOM List Demo</h2>
+
+  <input type="text" id="itemText" placeholder="Enter item text">
+  <br>
+  <button onclick="addItem()">Add Item</button>
+  <button onclick="removeLastItem()">Remove Last Item</button>
+  <button onclick="highlightItems()">Highlight All</button>
+
+  <ul id="myList">
+    <li>Initial Item</li>
+  </ul>
+
+  <script>
+    const list = document.getElementById("myList");
+
+    function addItem() {
+      const text = document.getElementById("itemText").value.trim();
+      if (text === "") {
+        alert("Please enter some text.");
+        return;
+      }
+
+      const newItem = document.createElement("li");
+      newItem.textContent = text;
+      list.appendChild(newItem);
+      document.getElementById("itemText").value = "";
+
+      // Log different DOM parts
+      console.log("Parent Node:", newItem.parentNode);
+      console.log("All Child Nodes of UL:", list.childNodes);
+      console.log("Next Sibling of New Item:", newItem.nextSibling);
+    }
+
+    function removeLastItem() {
+      if (list.lastElementChild) {
+        list.removeChild(list.lastElementChild);
+      } else {
+        alert("List is already empty.");
+      }
+    }
+
+    function highlightItems() {
+      const items = list.querySelectorAll("li");
+      items.forEach(item => {
+        item.style.backgroundColor = "#ffe082"; // Light yellow
+      });
+    }
+  </script>
+
+</body>
+</html>
