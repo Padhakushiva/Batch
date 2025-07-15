@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic To-Do List</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 50px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0277bd;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    li {
+      background-color: #e1f5fe;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #0277bd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    li:hover {
+      transform: scale(1.01);
+    }
+
+    .remove-btn {
+      background-color: #ff5252;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .remove-btn:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My Dynamic To-Do List</h2>
+
+  <div class="input-group">
+    <input type="text" id="itemInput" placeholder="Enter your task...">
+    <button onclick="addItem()">Add Item</button>
+  </div>
+
+  <ul id="myList">
+    <!-- Dynamic items will be added here -->
+  </ul>
+
+  <script>
+    function addItem() {
+      const input = document.getElementById("itemInput");
+      const text = input.value.trim();
+
+      if (text === "") {
+        alert("Please enter a task.");
+        return;
+      }
+
+      const ul = document.getElementById("myList");
+
+      const li = document.createElement("li");
+      li.textContent = text;
+
+      // Create remove button
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "❌";
+      removeBtn.className = "remove-btn";
+      removeBtn.onclick = function () {
+        ul.removeChild(li);
+      };
+
+      // Append remove button to li
+      li.appendChild(removeBtn);
+
+      // Add item to list
+      ul.appendChild(li);
+
+      // Clear input field
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
